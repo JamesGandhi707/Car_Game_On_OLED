@@ -2,9 +2,9 @@
 
 ### A Mini Retro Racing Game with FLY MODE, Special Powers and Police Helicopter!
 
-FARO SPORTS is a retro-style car racing game built using an ESP32 WROOM microcontroller and a 0.96-inch SSD1306 OLED display.
+FARO SPORTS is a retro-style racing game built using an ESP32 WROOM microcontroller and a 0.96-inch SSD1306 OLED display.
 
-Choose from four different cars, avoid enemy traffic, activate FLY MODE, use special car powers, launch rockets and escape the police helicopter!
+Choose from four different cars, avoid enemy traffic, activate FLY MODE, use special car powers and escape the police helicopter!
 
 ---
 
@@ -16,8 +16,8 @@ Choose from four different cars, avoid enemy traffic, activate FLY MODE, use spe
 - Animated player and enemy cars
 - FLY MODE with animated wings
 - Four unique car special powers
-- Rocket shooting and enemy destruction
-- 3D-style slow-motion explosion effects
+- Rocket animations and enemy destruction
+- Slow-motion explosion effects
 - Police helicopter chase system
 - Wanted star system (maximum 5 stars)
 - Player health system
@@ -112,7 +112,7 @@ Hold LEFT + RIGHT together for 3 seconds to reset the saved high score.
 
 ### 3. BRUTE – ROCKET 🚀
 
-- Special ability: Rocket launcher
+- Special ability: Rocket animation and enemy destruction
 - Initial ammunition: 5 rockets
 - Fires rockets straight ahead.
 - Rocket cooldown: 0.30 seconds
@@ -127,7 +127,7 @@ Hold LEFT + RIGHT together for 3 seconds to reset the saved high score.
 - Slow-motion multiplier: 0.50×
 - Duration: 4 seconds
 - Recharge time: 13 seconds
-- Slows down the entire game world.
+- Slows down the game world.
 
 ---
 
@@ -214,8 +214,8 @@ Hold LEFT and RIGHT together for 3 seconds to reset the saved high score.
 
 ### GAME OVER CONTROLS
 
-- START: Restart with the same car.
-- LEFT / RIGHT: Return to car selection.
+- **START:** Restart with the same car.
+- **LEFT / RIGHT:** Return to car selection.
 
 ---
 
@@ -224,7 +224,7 @@ Hold LEFT and RIGHT together for 3 seconds to reset the saved high score.
 ### DEVELOPMENT ENVIRONMENT
 
 - Arduino IDE
-- ESP32 Arduino Board Package (Core 2.x or 3.x)
+- ESP32 Arduino Board Package
 
 ### REQUIRED LIBRARIES
 
@@ -244,13 +244,13 @@ The following libraries are included with the ESP32 Arduino core:
 ## ⚙️ HOW TO INSTALL AND UPLOAD
 
 1. Download or clone this GitHub repository.
-2. Open `FaroSports_ESP32-powergta5.ino` in Arduino IDE.
+2. Open the `.ino` file in Arduino IDE.
 3. Install all required libraries.
 4. Select **ESP32 Dev Module** under Tools → Board.
 5. Select your ESP32 COM port.
 6. Connect the OLED display and four push buttons.
-7. Click Verify to compile the program.
-8. Click Upload.
+7. Click **Verify** to compile the program.
+8. Click **Upload**.
 9. Restart your ESP32.
 10. Enjoy FARO SPORTS!
 
@@ -299,6 +299,8 @@ Car_Game_On_OLED/
     └── car-selection.jpg
 ```
 
+*The filenames above are an example structure. Keep only files and folders that actually exist in your repository.*
+
 ---
 
 ## 🚀 FUTURE IMPROVEMENTS
@@ -318,7 +320,7 @@ Car_Game_On_OLED/
 
 **James Gandhi**
 
-Project Name: FARO SPORTS – ESP32 OLED Racing Game
+**Project:** FARO SPORTS – ESP32 OLED Racing Game
 
 Built with creativity using ESP32, Arduino IDE and SSD1306 OLED technology.
 
@@ -328,8 +330,10 @@ If you like this project, please give this repository a ⭐ on GitHub!
 
 ## 📜 LICENSE
 
-MIT License (see the LICENSE file in this repository).
+See the [`LICENSE`](LICENSE) file for the license terms.
 
 ---
 
-**THANK YOU FOR CHECKING OUT FARO SPORTS!** 🚗💨
+# THANK YOU FOR CHECKING OUT FARO SPORTS! 🚗💨
+
+**RACE • FLY • SURVIVE 🏁**
