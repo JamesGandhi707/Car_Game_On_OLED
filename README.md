@@ -1,39 +1,45 @@
-# 🚗 TURBO RACER v2 – ESP32 OLED Racing Game
+# 🚗 FARO SPORTS – ESP32 POWER
 
-A mini retro-style racing game built using an ESP32 WROOM and a 0.96-inch SSD1306 OLED display.
+### A Mini Retro Racing Game Powered by ESP32
 
-The game features three-lane racing, enemy vehicles, increasing speed, collision detection, score tracking, and an exciting FLY MODE with animated wings!
+FARO SPORTS is an exciting retro-style racing game developed using an ESP32 WROOM microcontroller and a 0.96-inch SSD1306 OLED display.
 
-## 🎮 Project Features
+Select your favourite car, avoid enemy traffic, activate FLY MODE, use special car powers, escape the police helicopter and beat your high score!
 
-- 128×64 monochrome OLED graphics
+## 🎮 Features
+
+- Animated FARO SPORTS splash screen
+- Four selectable racing cars
 - Three-lane racing gameplay
-- Player car movement
-- Random enemy car generation
-- Collision detection
-- Increasing game speed and difficulty
+- Animated car sprites
 - FLY MODE with animated wings
-- Flight energy and recharge system
+- Four unique special abilities
+- Enemy traffic and collision detection
+- Police helicopter chase system
+- Police shooting and bullet detection
+- Five-level wanted star system
+- Player health system
 - Score and high-score tracking
+- Increasing game speed and difficulty
 - Game-over and restart system
-- High score stored in ESP32 Preferences
+- High-score and car selection saved in ESP32 memory
 
-## 🛠️ Components Required
+## 🛠️ Hardware Requirements
 
 | Component | Quantity |
 |---|---:|
 | ESP32 WROOM | 1 |
-| 0.96-inch SSD1306 OLED (128×64) | 1 |
-| Push buttons | 3 |
-| Jumper wires | As required |
+| SSD1306 0.96-inch OLED 128×64 | 1 |
+| Push buttons | 4 |
 | Breadboard | 1 |
+| Jumper wires | As required |
 | USB cable | 1 |
 
 ## 🔌 Circuit Connections
 
 ### OLED Display
 
-| OLED Pin | ESP32 Pin |
+| OLED | ESP32 |
 |---|---|
 | VCC | 3.3V |
 | GND | GND |
@@ -42,81 +48,156 @@ The game features three-lane racing, enemy vehicles, increasing speed, collision
 
 ### Push Buttons
 
-| Button | ESP32 GPIO |
-|---|---|
-| LEFT | GPIO 18 |
-| RIGHT | GPIO 19 |
-| START / FLY | GPIO 23 |
+| Button | GPIO | Function |
+|---|---:|---|
+| LEFT | 18 | Move left |
+| RIGHT | 19 | Move right |
+| START / FLY | 23 | Start / Flight |
+| POWER | 4 | Special ability |
 
-Connect the other terminal of every button to GND.
+Connect the other terminal of each push button to GND.
 
-The project uses internal ESP32 pull-up resistors through `INPUT_PULLUP`.
+The program uses ESP32 internal pull-up resistors (`INPUT_PULLUP`).
+
+## 🕹️ Game Controls
+
+- LEFT: Move the car to the left lane.
+- RIGHT: Move the car to the right lane.
+- START: Start or restart the game.
+- START during gameplay: Activate FLY MODE.
+- POWER: Activate the selected car's special ability.
+
+## 🏎️ Selectable Cars and Special Powers
+
+### 1. TURBO – NITRO
+- Speed boost: 1.45×
+- Duration: 3 seconds
+- Recharge: 10 seconds
+
+### 2. VIPER – GHOST
+- Become invisible.
+- Police lose track of the player.
+- Police bullets pass through.
+- Duration: 5 seconds
+- Recharge: 14 seconds
+
+### 3. BRUTE – ROCKET
+- Starts with 5 rockets.
+- Fires rockets forward.
+- Destroys enemy cars on impact.
+- Each successful hit earns 30 points and one wanted star.
+- One rocket reloads every 8 seconds.
+
+### 4. COMET – SLOWMO
+- Slows down the entire game.
+- Slow-motion factor: 0.5×
+- Duration: 4 seconds
+- Recharge: 13 seconds
+
+## ✈️ FLY MODE
+
+FLY MODE is available for all four cars.
+
+- Activated using START.
+- Flight duration: 5 seconds.
+- Flight recharge: 12 seconds.
+- Speed multiplier: up to 1.8×.
+- Animated wing deployment.
+- Protects against traffic collisions.
+- Landing provides 0.8 seconds of temporary safety.
+- Passing enemy cars during flight earns double points.
+
+## 🚔 Police and Wanted System
+
+The police helicopter chases the player when wanted stars are activated.
+
+- Maximum wanted level: 5 stars.
+- Speed level 4: 1 wanted star.
+- Speed level 7: 2 wanted stars.
+- Speed level 10: 3 wanted stars.
+- Destroying enemy cars with rockets earns wanted stars.
+- Police helicopter follows and shoots at the player.
+- Higher wanted levels increase police aggression.
+- Twin bullets are fired at 4 or more wanted stars.
+- Police bullets reduce player health.
+- HP reaching zero ends the game.
+
+## 🎯 How to Play
+
+1. Power on the ESP32.
+2. Watch the FARO SPORTS splash screen.
+3. Select a car using LEFT and RIGHT.
+4. Press START to confirm your car.
+5. Wait for the 3-2-1-GO countdown.
+6. Avoid enemy vehicles.
+7. Activate FLY MODE using START.
+8. Activate special powers using POWER.
+9. Avoid police bullets and protect your health.
+10. Beat your high score!
+
+### Game Over Controls
+
+- START: Retry with the same car.
+- LEFT / RIGHT: Return to car selection.
 
 ## 💻 Software Requirements
 
 - Arduino IDE
-- ESP32 Arduino Board Package
-- Adafruit SSD1306 Library
+- ESP32 Arduino Board Package (core 2.x or 3.x)
 - Adafruit GFX Library
+- Adafruit SSD1306 Library
 - Adafruit BusIO Library
 
-The Wire and Preferences libraries are included with the ESP32 Arduino core.
+Wire and Preferences are included with the ESP32 Arduino core.
 
-## ⚙️ Installation
+## ⚙️ Installation and Upload
 
-1. Download or clone this repository.
-2. Open `TurboRacer_ESP32-4.ino` in Arduino IDE.
+1. Download this repository.
+2. Open `FaroSports_ESP32-powergta5.ino` in Arduino IDE.
 3. Install the required libraries.
 4. Select ESP32 Dev Module.
-5. Select your ESP32 COM port.
-6. Connect the OLED and buttons according to the wiring table.
-7. Upload the code.
-8. Enjoy the game!
-
-## 🕹️ How to Play
-
-- Press START to begin.
-- Press LEFT to move into the left lane.
-- Press RIGHT to move into the right lane.
-- Avoid enemy vehicles.
-- Press START during gameplay to activate FLY MODE.
-- Use flight mode to pass over enemy vehicles safely.
-- Collect points and beat your high score.
-
-### FLY MODE
-
-- Flight duration: 5 seconds.
-- Energy recharge: approximately 12 seconds.
-- Flying speed boost: up to 1.8×.
-- Passing enemy vehicles while flying earns 20 points.
+5. Select the correct COM port.
+6. Connect the OLED and four buttons.
+7. Click Verify.
+8. Upload the program to your ESP32.
+9. Enjoy FARO SPORTS!
 
 ## 🧠 Technologies Used
 
+- ESP32 Microcontroller
 - Embedded C++
 - Arduino IDE
-- ESP32 microcontroller
-- I2C communication
-- SSD1306 OLED graphics
+- I2C Communication
+- SSD1306 OLED Graphics
 - Adafruit GFX
-- ESP32 Preferences storage
+- ESP32 Preferences
+- Game logic and collision detection
 
-## 📸 Project Preview
+## 📸 Project Gallery
 
-Add your project photos and gameplay video here.
+Add your own project photographs here:
+
+- Complete hardware setup
+- OLED gameplay
+- Car selection menu
+- Wiring connections
 
 ## 🚀 Future Improvements
 
-- Dedicated FLY button
+- Additional racing cars
+- More special abilities
 - Sound effects
 - More enemy vehicle designs
 - Additional game modes
-- Pause and resume functionality
+- Improved animations
 
-## 👨‍💻 Author
+## 👨‍💻 Project Name
 
-Created as an ESP32 embedded systems and DIY gaming project.
+**FARO SPORTS – ESP32 POWER GTA 5**
 
-If you like this project, give the repository a ⭐!
+A DIY embedded gaming project built with creativity and electronics.
+
+If you like this project, please give the repository a ⭐ on GitHub!
 
 ## 📜 License
 
